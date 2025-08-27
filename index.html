@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Diya ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      background: url("https://i.postimg.cc/W3mXQHvm/Whats-App-Image-2025-08-27-at-18-48-23-b0f42694.jpg") no-repeat center center/cover;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffccff;
+      text-shadow: 0 0 15px #ff66cc, 0 0 25px #ff3399;
+      margin-bottom: 40px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff3399; }
+      to { text-shadow: 0 0 20px #ff99cc, 0 0 40px #ff3399; }
+    }
+
+    .message {
+      width: 80%;
+      max-width: 900px;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      font-weight: 500;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 8px black;
+    }
+
+    .typing {
+      border-right: 2px solid white;
+      white-space: pre-wrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { border-color: white; }
+      51%, 100% { border-color: transparent; }
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating emojis -->
+  <div class="emoji" style="left:10%;">❤️</div>
+  <div class="emoji" style="left:20%; animation-delay:2s;">💕</div>
+  <div class="emoji" style="left:35%; animation-delay:4s;">💖</div>
+  <div class="emoji" style="left:50%; animation-delay:1s;">💘</div>
+  <div class="emoji" style="left:65%; animation-delay:3s;">💞</div>
+  <div class="emoji" style="left:80%; animation-delay:5s;">😍</div>
+  <div class="emoji" style="left:90%; animation-delay:6s;">🥰</div>
+
+  <!-- Main heading -->
+  <div class="heading">💖 HAPPY BIRTHDAY DIYA 💖</div>
+
+  <!-- Birthday message with typing effect -->
+  <div class="message"><span id="typed" class="typing"></span></div>
+
+  <!-- Background music -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="https://files.catbox.moe/80mn4x.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const text = `Happy Birthday, Amu. I honestly don’t know how to put into words what you truly mean to me, but I’ll try my best. Being with you has been the most beautiful part of my life, and every single day with you feels like a gift. You’ve become my safe place the one I can trust with anything, the one who makes me feel at peace even when life is messy. I love the way you understand me without me having to explain much, the way you care, and the way you love me so effortlessly. I’m grateful for you, for us, and for all the little and big moments we’ve shared and will share together. On your birthday, I just want you to know that you are the most special person in my life, and I will keep choosing you every single day, no matter what. This day is yours, but my heart will always be yours too. Once again, happy birthday Amu Kutty. I love you so much💖😘.`;
+
+    const typed = document.getElementById("typed");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typed.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50); // typing speed
+      } else {
+        typed.classList.remove("typing"); // remove cursor at end
+      }
+    }
+
+    window.onload = () => {
+      typeWriter();
+    };
+
+    // Music autoplay unmute
+    const audio = document.getElementById("bg-music");
+    document.body.addEventListener("click", () => {
+      audio.muted = false;
+      audio.play();
+    }, { once: true });
+  </script>
+</body>
+</html>
